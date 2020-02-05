@@ -26,7 +26,7 @@ class RepositoryList extends Component<Props> {
       <ul>
         {
           repositories.map((repository) => (
-            <RepositoryItem key={repository.id} repositories={repository} />
+            <RepositoryItem key={repository.id} repository={repository} />
           ))
         }
       </ul>
