@@ -22,6 +22,10 @@ yarn
 yarn start
 ```
 
+### Estou Utilizando
+  - eslint
+  - prettier
+
 ### Criar App React com suporte a TS
 ```
     create-react-app reactwithts --typescript
