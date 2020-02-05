@@ -26,6 +26,7 @@ yarn start
   - eslint
   - prettier
   - redux
+  - react-redux
   - typesafe-actions // Mantém as actions menos verbosas
 
 ### Criar App React com suporte a TS
@@ -33,6 +34,21 @@ yarn start
     create-react-app reactwithts --typescript
 ```
 
+#### Estrutura
+
+O estado da aplicação é administrado pelo Redux, seguindo a estrutura:
+
+```
+  store/
+    |->ducks/
+         |-> index.ts
+         |-> rootReducer.ts
+         |-> repositories/
+                |-> actions.ts
+                |-> index.ts
+                |-> types.ts
+                |->
+```
 
 ## Author
 

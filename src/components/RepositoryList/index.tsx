@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { ApplicationState } from '../../store';
 import { Repository } from '../../store/ducks/repositories/types';
-import * as actions from '../../store/ducks/repositories/actions';
+import { ApplicationState } from '../../store';
+import * as RepositoryActions from '../../store/ducks/repositories/actions';
+import RepositoryItem from '../RepositoryItem';
 
 interface StateProps {
   repositories: Repository[]
 }
 interface DispatchProps {
   loadRequest(): void
-  loadSuccess(data: Repository[]): void
-  loadFailure(): void
 }
-
-class RepositoryList extends Component<StateProps, DispatchProps> {
-  componentDidMount() { }
+type Props = StateProps & DispatchProps
+class RepositoryList extends Component<Props> {
+  componentDidMount() {
+    const { loadRequest } = this.props;
+    loadRequest();
+  }
 
   render() {
     const { repositories } = this.props;
+
     return (
       <ul>
         {
-          repositories.map((repository) => (<li>{repository.name}</li>))
+          repositories.map((repository) => (
+            <RepositoryItem key={repository.id} repositories={repository} />
+          ))
         }
       </ul>
 
@@ -34,7 +39,7 @@ const mapStateToProps = (state: ApplicationState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-  bindActionCreators(actions, dispatch);
+  return bindActionCreators(RepositoryActions, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RepositoryList);
