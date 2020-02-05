@@ -25,6 +25,8 @@ yarn start
 ### Estou Utilizando
   - eslint
   - prettier
+  - redux
+  - typesafe-actions // Mantém as actions menos verbosas
 
 ### Criar App React com suporte a TS
 ```

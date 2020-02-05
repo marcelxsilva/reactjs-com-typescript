@@ -23,10 +23,20 @@ module.exports = {
   },
   plugins: ['react', 'import', 'jsx-a11y'],
   rules: {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     'react/jsx-filename-extension': [
       'error',
       {
-        extensions: ['.tsx'],
+        extensions: ['.tsx',],
       },
     ],
     'import/prefer-default-export': 'off',
